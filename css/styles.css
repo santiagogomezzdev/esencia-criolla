@@ -1,3 +1,6 @@
+/* =========================================
+   1. RESET Y VARIABLES GLOBALES
+========================================= */
 :root {
     --color-fondo: #d5c8b9;
     --color-primario: #6a4a42;
@@ -21,37 +24,42 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
 }
 
-/* Forzamos al header a mantenerse delgado */
+/* =========================================
+   2. HEADER PREMIUM (GLASSMORPHISM)
+========================================= */
 header {
-    background-color: var(--color-primario);
-    padding: 0 20px; /* Quitamos el padding vertical que engordaba el header */
-    height: 70px; /* Altura fija y estricta */
+    background-color: rgba(106, 74, 66, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0 20px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Preparamos el contenedor para posicionamiento absoluto */
+/* =========================================
+   3. LOGO COLGANTE Y NAVEGACIÓN
+========================================= */
 .logo-container {
     position: relative;
-    width: 120px; /* Le damos un ancho reservado para que el nav no se pegue */
+    width: 120px;
     height: 100%;
 }
 
-/* El Logo Colgante */
 .logo-container img {
     position: absolute;
-    top: 5px; /* Lo despegamos apenas del borde superior */
-    left: 0;
-    height: 110px; /* Logo gigante */
-    z-index: 110;
-    /* Sombra para darle profundidad cuando cuelga sobre la foto del sándwich */
+    top: 5px;
+    left: 20px;
+    height: 110px;
+    z-index: 1100; /* Asegura que el logo quede por encima del menú móvil */
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5)); 
     transition: transform 0.3s ease;
 }
@@ -63,31 +71,62 @@ header {
 }
 
 .logo-container img:hover {
-    transform: scale(1.05); /* Efecto táctil al pasar el mouse */
+    transform: scale(1.05);
 }
 
-nav a {
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
     color: var(--color-blanco);
     text-decoration: none;
-    margin-left: 15px;
+    margin-left: 20px;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e5a93d;
 }
 
 .btn-primary {
     background-color: #e5a93d;
     padding: 8px 15px;
     border-radius: var(--radio-borde);
-    color: var(--color-texto);
+    color: var(--color-texto) !important;
 }
 
-/* Override para el Hero (Debe ser Full Width y Full Height) */
+/* =========================================
+   4. MENÚ HAMBURGUESA (Oculto en Escritorio)
+========================================= */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1100; 
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 28px;
+    background-color: var(--color-blanco);
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   5. HERO Y SECCIONES GENERALES
+========================================= */
 #hero {
     max-width: 100%;
     width: 100%;
     padding: 0;
-    /* Usamos 'right center' para intentar salvar el sándwich de la derecha */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../assets/img/hero.jpeg') right center/cover no-repeat;
-    height: 100vh; /* Ahora ocupa el 100% del alto de la ventana */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +158,6 @@ nav a {
     transform: scale(1.05);
 }
 
-/* Secciones Generales */
 section {
     padding: 60px 20px;
     max-width: 800px;
@@ -134,7 +172,9 @@ h2 {
     text-transform: uppercase;
 }
 
-/* Menú Estilo App */
+/* =========================================
+   6. MENÚ DE PRODUCTOS (Estilo App)
+========================================= */
 .menu-item {
     background: var(--color-blanco);
     border-radius: 16px;
@@ -149,6 +189,34 @@ h2 {
 .menu-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.producto-estrella {
+    border: 2px solid #e5a93d;
+    position: relative;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(229, 169, 61, 0.2);
+    z-index: 10;
+}
+
+.producto-estrella:hover {
+    transform: scale(1.04) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(229, 169, 61, 0.3);
+}
+
+.badge-estrella {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #e5a93d;
+    color: var(--color-texto);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .menu-img {
@@ -205,26 +273,9 @@ h2 {
     transform: scale(0.98);
 }
 
-/* Video */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    margin-top: 30px;
-    border-radius: var(--radio-borde);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Formulario - UX */
+/* =========================================
+   7. FORMULARIO Y UX CHIPS
+========================================= */
 .form-group {
     margin-bottom: 25px;
 }
@@ -245,7 +296,6 @@ input[type="text"], select, textarea {
     font-size: 1rem;
 }
 
-/* Chips del Formulario */
 .chip-group {
     display: flex;
     flex-wrap: wrap;
@@ -295,7 +345,9 @@ input[type="text"], select, textarea {
     background-color: #20b858;
 }
 
-/* Footer */
+/* =========================================
+   8. FOOTER, BOTÓN FLOTANTE Y CRÉDITOS
+========================================= */
 footer {
     background-color: var(--color-primario);
     color: var(--color-blanco);
@@ -315,7 +367,6 @@ footer {
     font-weight: bold;
 }
 
-/* Botón Flotante WhatsApp */
 .float-wa {
     position: fixed;
     bottom: 30px;
@@ -341,7 +392,6 @@ footer {
     transform: scale(1.1);
 }
 
-/* Créditos de Agencia */
 .agency-credit {
     margin-top: 30px;
     padding-top: 20px;
@@ -355,7 +405,7 @@ footer {
 }
 
 .agency-credit a {
-    color: #e5a93d; /* Tono crema/dorado de tu paleta para que resalte sutilmente */
+    color: #e5a93d; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -366,82 +416,122 @@ footer {
     text-decoration: underline;
 }
 
-/* --- UI PREMIUM TWEAKS --- */
-
-/* Destacar el producto estrella */
-.producto-estrella {
-    border: 2px solid #e5a93d;
-    position: relative;
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(229, 169, 61, 0.2);
-    z-index: 10;
-}
-
-.producto-estrella:hover {
-    transform: scale(1.04) translateY(-5px);
-    box-shadow: 0 15px 35px rgba(229, 169, 61, 0.3);
-}
-
-.badge-estrella {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: #e5a93d;
-    color: var(--color-texto);
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    z-index: 2;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* Grid de Historia para look corporativo/elegante */
-.historia-grid {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.historia-texto {
-    flex: 1;
-    font-size: 1.1rem;
-    color: #444;
-}
-
-.historia-texto p {
-    margin-bottom: 15px;
-}
-
-.historia-foto {
-    flex: 1;
-}
-
-.foto-traje {
-    width: 100%;
-    border-radius: var(--radio-borde);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    /* El truco vital: Sepia sutil para que los trajes no desentonen con la marca de fuego/madera */
-    filter: sepia(0.4) contrast(1.1) brightness(0.9);
-    transition: filter 0.3s ease;
-}
-
-.foto-traje:hover {
-    filter: sepia(0) contrast(1) brightness(1); /* Vuelve a la normalidad al pasar el mouse */
-}
-
-/* Responsividad del grid */
+/* =========================================
+   9. MEDIA QUERIES (MOBILE FIRST CORRECTO)
+========================================= */
 @media (max-width: 768px) {
-    .historia-grid {
-        flex-direction: column;
+    /* 9.1 Menú Hamburguesa Lógica Visual */
+    .menu-toggle {
+        display: flex;
     }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto fuera de la pantalla */
+        width: 75vw;
+        height: 100vh;
+        background-color: rgba(106, 74, 66, 0.98);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        margin: 20px 0;
+        font-size: 1.5rem;
+    }
+
+    /* Animación de las 3 rayas a X */
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* 9.2 Ajustes de Logo y Grid en Móvil */
+    .logo-container img {
+        height: 75px; 
+        left: 10px; /* Lo despegamos menos en celular para que no estorbe */
+    }
+
     .producto-estrella {
         transform: scale(1);
     }
+
     .producto-estrella:hover {
         transform: translateY(-5px);
     }
 }
 
+/* =========================================
+   10. SECCIÓN VIDEO TEASER Y BOTÓN SECUNDARIO
+========================================= */
+.texto-gancho {
+    text-align: center;
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Contenedor del video con Aspect Ratio moderno */
+.video-grande {
+    width: 100%;
+    max-width: 800px; /* Contenido para que no ocupe toda la cara en monitores grandes */
+    aspect-ratio: 16 / 9; /* Forzamos el formato panorámico nativo */
+    margin: 0 auto 35px auto;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    background-color: #000;
+}
+
+/* Forzamos al iframe a ocupar exactamente el 100% de ese contenedor 16:9 */
+.video-grande iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Elimina márgenes fantasma debajo del iframe */
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Botón secundario (Ghost button) para no competir con "Pedir Ahora" */
+.btn-secundario {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: var(--radio-borde);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(106, 74, 66, 0.2);
+}

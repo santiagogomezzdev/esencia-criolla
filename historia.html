@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="logo-container">
             <a href="index.html">
                 <img src="assets/img/logo.png" alt="Logo Esencia Criolla" class="logo">
             </a>
         </div>
-        <nav>
+        
+        <!-- El Menú Hamburguesa -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-links" id="nav-links">
             <a href="index.html#menu">Menú</a>
             <a href="historia.html">Nuestra Historia</a>
             <a href="index.html#pedido" class="btn-primary">Pedir Ahora</a>
@@ -78,5 +86,6 @@
             <p>Desarrollado por Thiago Paez en colaboración con <a href="https://www.valtiermarketing.com.ar" target="_blank" rel="noopener noreferrer" style="color: #e5a93d; text-decoration: none; font-weight: bold;">Valtier Marketing</a></p>
         </div>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>

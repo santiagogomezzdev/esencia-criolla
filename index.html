@@ -7,15 +7,24 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="logo-container">
-            <img src="assets/img/logo.png" alt="Logo Esencia Criolla" class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo Esencia Criolla" class="logo">
+            </a>
         </div>
-        <nav>
+        
+        <!-- El Menú Hamburguesa -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-links" id="nav-links">
             <a href="index.html#menu">Menú</a>
             <a href="historia.html">Nuestra Historia</a>
             <a href="index.html#pedido" class="btn-primary">Pedir Ahora</a>
-        </nav>
         </nav>
     </header>
 
@@ -27,12 +36,16 @@
             </div>
         </section>
 
-            <section id="historia">
-            <h2>Nuestra Historia</h2>
-            <p>Esencia Criolla es una empresa creada en 2024. Surgió con la idea de ofrecer comidas tradicionales y caseras, buscando representar parte de la cultura y los sabores argentinos. Manteniendo vivas las costumbres de la cocina criolla, cocinamos al disco sobre fuego de leña.</p>
+            <section id="video-promo">
+            <h2>Nuestra Esencia en Acción</h2>
+            <p class="texto-gancho">Mirá cómo preparamos el sándwich más zarpado de Eldorado. Fuego, leña y 4 pibes que decidieron hacer las cosas bien. Dale play y tentate.</p>
             
-            <div class="video-container">
+            <div class="video-grande">
                 <iframe src="https://www.youtube.com/embed/qfttNB9Vu38" title="Video Institucional Esencia Criolla" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="cta-container">
+                <a href="historia.html" class="btn-secundario">Conocé a la banda (Nuestra Historia)</a>
             </div>
         </section>
 
