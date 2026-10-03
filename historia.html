@@ -1,98 +1,603 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html class="dark" lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia | Esencia Criolla</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"surface-container-high": "#332724", "ember-glow": "#f59e0b", "on-surface": "#f3ded9", "on-primary-fixed-variant": "#604100", "on-tertiary-fixed": "#002109", "surface-container-highest": "#3e322e", "leather-deep": "#36201b", "surface-bright": "#433633", "parchment-cream": "#faf7f2", "parchment-muted": "#f3ede2", "on-background": "#f3ded9", "surface-variant": "#3e322e", "error-container": "#93000a", "on-secondary-container": "#d6aca1", "tertiary-fixed": "#7ffc97", "primary-container": "#e5a93d", "on-error": "#690005", "background": "#1b110e", "on-tertiary-fixed-variant": "#005320", "tertiary-container": "#4dcb6c", "on-tertiary": "#003914", "secondary-fixed-dim": "#e8bdb2", "on-secondary-fixed": "#2d150f", "secondary-container": "#5e3f38", "surface-tint": "#fabc4e", "on-surface-variant": "#d4c4b0", "on-primary-container": "#5e4000", "inverse-primary": "#7f5700", "primary-fixed": "#ffdead", "surface-container-lowest": "#150c09", "secondary-fixed": "#ffdad2", "on-primary-fixed": "#281900", "outline": "#9d8f7c", "inverse-surface": "#f3ded9", "tertiary-fixed-dim": "#62df7d", "tertiary": "#6be885", "soot-black": "#120c0a", "error": "#ffb4ab", "primary-fixed-dim": "#fabc4e", "outline-variant": "#504536", "primary": "#ffc666", "whatsapp-green": "#25D366", "on-secondary-fixed-variant": "#5e3f38", "surface-container-low": "#241916", "on-primary": "#432c00", "on-secondary": "#452922", "on-tertiary-container": "#005120", "surface": "#1b110e", "surface-dim": "#1b110e", "surface-container": "#281d1a", "inverse-on-surface": "#3a2e2a", "secondary": "#e8bdb2", "on-error-container": "#ffdad6"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"space-sm": "0.5rem", "space-lg": "1.5rem", "margin-desktop": "2.5rem", "space-xs": "0.25rem", "margin": "1rem", "gutter": "1rem", "margin-tablet": "1.5rem", "space-xl": "2.5rem", "space-md": "1rem", "gutter-desktop": "1.5rem"}, "fontFamily": {"display-hero-mobile": ["Epilogue"], "label-stamp": ["Epilogue"], "label-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Epilogue"], "headline-md": ["Epilogue"], "headline-sm": ["Epilogue"], "display-hero": ["Epilogue"], "headline-lg": ["Epilogue"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"]}, "fontSize": {"display-hero-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800"}], "label-stamp": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "800"}], "label-lg": ["15px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}], "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}], "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}], "display-hero": ["48px", {"lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "800"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}], "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}], "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "600"}], "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}]}}}}</script>
 </head>
-<body>
-    <header id="main-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="assets/img/logo.png" alt="Logo Esencia Criolla" class="logo">
-            </a>
+
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md">
+      
+      <div class="flex items-center gap-space-sm">
+        <img alt="logo.png" class="h-8 w-auto object-contain" src="assets/img/logo_2.png" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-parchment-cream tracking-tight">Esencia Criolla</span>
+          <span class="font-label-stamp text-label-stamp uppercase text-primary tracking-widest">Vacío a Leña · Eldorado</span>
         </div>
+      </div>
+
+      <!-- Menú de Navegación Responsivo -->
+      <nav id="mobile-nav" class="fixed top-0 right-[-100%] w-3/4 h-screen bg-soot-black/95 backdrop-blur-xl flex flex-col justify-center items-center gap-8 transition-all duration-300 md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:justify-end md:gap-space-lg shadow-2xl md:shadow-none">
+        <a class="font-label-lg text-2xl md:text-label-lg text-parchment-cream hover:text-primary transition-colors mobile-link" href="index.html#menu-carta">Inicio / Carta</a>
+        <a class="font-label-lg text-2xl md:text-label-lg text-parchment-cream hover:text-primary transition-colors mobile-link" href="#">Nuestra Historia</a>
+        <a class="font-label-lg text-2xl md:text-label-lg text-parchment-cream hover:text-primary transition-colors mobile-link" href="index.html#armar-pedido">Cómo Pedir</a>
+      </nav>
+
+      <!-- Controles de la derecha (Botón WA Desktop + Hamburguesa Móvil) -->
+      <div class="flex items-center gap-space-sm z-50">
+        <a class="hidden sm:inline-flex items-center gap-space-xs bg-whatsapp-green hover:bg-tertiary text-on-tertiary-fixed font-label-lg text-label-lg px-space-md py-space-sm rounded-xl transition-all shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)] active:scale-95" href="https://wa.me/5493751335955" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[18px]">chat</span><span>Pedir por WhatsApp</span>
+        </a>
         
-        <!-- El Menú Hamburguesa -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <!-- Ícono Hamburguesa para Móvil -->
+        <button id="menu-btn" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none z-50">
+          <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]">
+    <div class="flex flex-col w-full">
+      <!-- Cabecera Editorial & Hero Emocional -->
+      <section class="relative w-full overflow-hidden bg-surface py-space-xl md:py-24">
+        <!-- Resplandor ambiental de brasas de fondo -->
+        <div
+          class="absolute -top-32 left-1/2 -translate-x-1/2 w-[680px] h-[360px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
         </div>
-
-        <nav class="nav-links" id="nav-links">
-            <a href="index.html#menu">Menú</a>
-            <a href="historia.html">Nuestra Historia</a>
-            <a href="index.html#pedido" class="btn-primary">Pedir Ahora</a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="historia-completa" style="max-width: 900px;">
-            <h1 style="color: var(--color-primario); font-size: 2.5rem; text-align: center; margin-bottom: 10px;">De Misiones para Misiones</h1>
-            <p style="text-align: center; font-weight: bold; color: #666; margin-bottom: 40px;">Fundada en 2024, Eldorado</p>
-
-            <div class="historia-intro" style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px;">
-                <p>Todo arrancó como arrancan las mejores ideas en Misiones: después del colegio, con hambre y sin plata.</p>
-                <p>A partir de la iniciativa de cuatro estudiantes que compartían una misma inquietud: crear un producto gastronómico que representara auténticamente los sabores y la identidad argentina.
-
-La idea surgió a partir de una conversación cotidiana entre los integrantes del proyecto, quienes se propusieron desarrollar un sándwich diferente, inspirado en la gastronomía nacional y adaptado a los gustos de nuestra región.
-
-Así nació Esencia Criolla, un sándwich elaborado con carne desmechada, chimichurri, salsa criolla, queso misionero y un pan especialmente seleccionado para acompañar sus ingredientes y conservar su calidad. Así nació <strong>Esencia Criolla</strong>.</p>
-            </div>
-
-            <!-- Foto del Equipo -->
-            <div style="margin-bottom: 40px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                <img src="assets/img/equipo.jpeg" alt="El equipo de Esencia Criolla" style="width: 100%; display: block; filter: sepia(0.3) contrast(1.1);">
-            </div>
-
-            <h2 style="margin-bottom: 30px;">Desde sus comienzos, los integrantes decidieron distribuir las responsabilidades de acuerdo con diferentes áreas de trabajo, permitiendo una organización eficiente y un funcionamiento equilibrado del emprendimiento.</h2>
-
-            <div class="equipo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                
-                <div class="miembro-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--color-primario); border-bottom: 2px solid #e5a93d; padding-bottom: 10px; margin-bottom: 15px;">1. Lucas Casco <span style="font-size: 0.9rem; color: #777; display: block;">El Director General</span></h3>
-                    <p>Es responsable de la dirección y coordinación general del emprendimiento. Entre sus principales funciones se encuentran la toma de decisiones, la planificación de las actividades, la coordinación con proveedores y la supervisión del funcionamiento general del negocio. Su función es garantizar que las diferentes áreas trabajen de manera coordinada y orientadas hacia los objetivos de la empresa.</p>
-                </div>
-
-                <div class="miembro-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--color-primario); border-bottom: 2px solid #e5a93d; padding-bottom: 10px; margin-bottom: 15px;">2. Thiago Paez <span style="font-size: 0.9rem; color: #777; display: block;">Marketing</span></h3>
-                    <p>Está a cargo del área de marketing y comunicación. Sus responsabilidades incluyen el desarrollo de estrategias publicitarias, la creación de contenido para redes sociales, la promoción de los productos y el diseño de campañas destinadas a dar a conocer la marca en la comunidad. También trabaja en la identidad visual y en la presentación de los productos para fortalecer el posicionamiento de Esencia Criolla.</p>
-                </div>
-
-                <div class="miembro-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--color-primario); border-bottom: 2px solid #e5a93d; padding-bottom: 10px; margin-bottom: 15px;">3. Florentín Alan <span style="font-size: 0.9rem; color: #777; display: block;">Contabilidad</span></h3>
-                    <p>Es responsable de la administración y el control financiero del emprendimiento. Se encarga del registro de ingresos y egresos, el seguimiento de los costos, el análisis de los resultados económicos y la planificación financiera. Su función es contribuir a que la empresa mantenga un equilibrio económico y pueda desarrollarse de manera sostenible.</p>
-                </div>
-
-                <div class="miembro-card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--color-primario); border-bottom: 2px solid #e5a93d; padding-bottom: 10px; margin-bottom: 15px;">4. Florentín Lautaro <span style="font-size: 0.9rem; color: #777; display: block;">Recursos Humanos</span></h3>
-                    <p>Está a cargo de la gestión de los recursos humanos. Sus funciones comprenden la coordinación del personal, la organización de las tareas, la comunicación interna y el fortalecimiento de un buen ambiente de trabajo. Su objetivo es promover la cooperación, el compromiso y el trabajo en equipo dentro de la organización.</p>
-                </div>
-
-            </div>
-            
-            <p style="text-align: center; font-size: 1.3rem; font-weight: bold; margin-top: 50px; padding: 20px; background: var(--color-primario); color: white; border-radius: 12px;">
-                Cada integrante cumple una función fundamental dentro de Esencia Criolla. Lucas dirige y coordina, Thiago comunica y posiciona la marca, Alan administra los recursos económicos y Lautaro gestiona al equipo humano.
-
-La combinación de estas áreas permite que el emprendimiento funcione de manera organizada y que cada decisión contribuya al crecimiento del proyecto.
-
-Esencia Criolla representa el resultado de transformar una idea surgida entre compañeros de colegio en un emprendimiento con identidad propia, inspirado en los sabores argentinos y con raíces en Eldorado, Misiones.
-
-        </section>
-    </main>
-
-    <footer>
-        <h3>ESENCIA CRIOLLA</h3>
-        <div class="footer-links">
-            <a href="https://wa.me/5493751335955" target="_blank">WhatsApp</a>
-            <a href="#">Instagram</a>
+        <div
+          class="absolute top-1/3 -right-24 w-80 h-80 bg-ember-glow/10 rounded-full blur-[100px] pointer-events-none">
         </div>
-        <div class="agency-credit" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 0.85rem; color: rgba(255, 255, 255, 0.7);">
-            <p>Desarrollado por Thiago Paez en colaboración con <a href="https://www.valtiermarketing.com.ar" target="_blank" rel="noopener noreferrer" style="color: #e5a93d; text-decoration: none; font-weight: bold;">Valtier Marketing</a></p>
+        <div class="relative w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div class="flex flex-col items-center text-center max-w-3xl mx-auto space-y-space-md">
+            <!-- Tag Editorial con Sello de Época -->
+            <div
+              class="inline-flex items-center gap-space-xs bg-surface-container-high/80 px-space-md py-space-xs rounded-full shadow-sm">
+              <span class="material-symbols-outlined text-primary text-[18px]">local_fire_department</span>
+              <span class="font-label-stamp text-label-stamp uppercase tracking-widest text-primary">
+                Emprendimiento Misionero · Fundada en 2024
+              </span>
+            </div>
+            <h1
+              class="font-display-hero text-display-hero-mobile md:text-display-hero text-parchment-cream tracking-tight">
+              De Misiones para Misiones: <br class="hidden sm:inline" />
+              <span class="text-primary italic font-normal">Fuego, Pasión y Tradición</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+              De una charla con hambre después del colegio a crear el sándwich de vacío desmechado con auténtica
+              identidad misionera.
+            </p>
+            <!-- Divisor rústico estilizado -->
+            <div class="flex items-center justify-center gap-space-sm pt-space-xs text-outline-variant">
+              <div class="w-12 h-[2px] bg-primary/30"></div>
+              <span class="font-label-stamp text-label-stamp tracking-widest text-primary uppercase">Eldorado ·
+                Misiones</span>
+              <div class="w-12 h-[2px] bg-primary/30"></div>
+            </div>
+          </div>
         </div>
-    </footer>
-    <script src="js/main.js"></script>
+      </section>
+      <!-- Sección de la Fotografía Histórica Fundacional -->
+      <section class="relative w-full bg-surface-container-low py-space-lg md:py-space-xl">
+        <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div class="relative rounded-2xl bg-leather-deep/90 shadow-xl overflow-hidden p-space-sm md:p-space-lg">
+            <!-- Detalle de fondo sutil leña -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-soot-black/80 via-transparent to-transparent pointer-events-none z-10">
+            </div>
+            <div class="relative z-0 overflow-hidden rounded-xl bg-surface-container-lowest">
+              <img
+                alt="Socios Fundadores de Esencia Criolla"
+                class="w-full h-auto object-contain filter sepia-[0.15] contrast-105 transition-transform duration-700 hover:scale-[1.01]"
+                src="assets/img/equipo.jpeg" />
+            </div>
+            <!-- Pie de foto testimonial y editorial -->
+            <div
+              class="relative z-20 mt-space-md pt-space-sm px-space-xs flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+              <div class="space-y-space-xs max-w-2xl">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
+                  <span class="font-label-stamp text-label-stamp uppercase tracking-widest text-primary">Retrato
+                    Fundacional · Promoción 2024</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface">
+                  Los cuatro socios fundadores de traje en el patio del colegio técnico donde se gestó la hermandad y la
+                  receta que hoy enciende el fuego en Eldorado.
+                </p>
+              </div>
+              <div
+                class="shrink-0 flex items-center gap-space-md bg-surface-container-high/90 px-space-md py-space-sm rounded-xl">
+                <div class="text-right">
+                  <span class="block font-label-stamp text-label-stamp uppercase text-on-surface-variant">Lugar de
+                    Origen</span>
+                  <span class="font-headline-sm text-headline-sm text-parchment-cream">Eldorado, Misiones</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[22px]">location_on</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Narrativa del Origen & La Receta Insignia (Split Layout Asimétrico) -->
+      <section class="relative w-full bg-surface py-space-xl">
+        <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+            <!-- Columna Izquierda: Narrativa Histórica -->
+            <div class="lg:col-span-7 flex flex-col space-y-space-md">
+              <div class="inline-flex items-center gap-space-xs text-primary">
+                <span class="material-symbols-outlined text-[20px]">menu_book</span>
+                <span class="font-label-stamp text-label-stamp uppercase tracking-widest">Nuestras Raíces</span>
+              </div>
+              <h2
+                class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-parchment-cream leading-tight">
+                Todo arrancó como arrancan las mejores ideas en Misiones:
+                <span class="text-primary block mt-space-xs font-normal italic">después del colegio, con hambre y sin
+                  plata.</span>
+              </h2>
+              <div class="space-y-space-md font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                <p>
+                  Sentados en la vereda de la escuela técnica, entre cuadernos de cálculo y mochilas pesadas, soñábamos
+                  con una comida que representara de verdad lo que somos: el humo del quebracho y el espinillo, el disco
+                  de arado al rojo vivo y la generosidad de la mesa criolla misionera.
+                </p>
+                <p>
+                  No queríamos comida rápida genérica ni ultraprocesados sin alma. Queríamos vacío vacuno de primera,
+                  braseado pacientemente durante más de cinco horas con caldo de hierbas silvestres hasta quedar tan
+                  tierno que se deshace con una cuchara de madera.
+                </p>
+              </div>
+              <!-- Puntos destacados de la identidad gastronómica -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-sm">
+                <div class="bg-surface-container p-space-md rounded-xl space-y-space-xs shadow-sm">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+                    <span class="material-symbols-outlined text-[20px]">outdoor_grill</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Cocción a Disco y Leña</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Carne desmechada al fuego vivo en disco
+                    de campo curtido con grasa vacuna y especias criollas.</p>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-xl space-y-space-xs shadow-sm">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">
+                    <span class="material-symbols-outlined text-[20px]">grass</span>
+                  </div>
+                  <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Chimi Casero &amp; Criolla</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Pimiento rojo, cebolla morada, orégano de
+                    huerta y vinagre de alcohol macerado por 48 horas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Columna Derecha: El Desglose de la Receta Insignia (Bento Card) -->
+            <div class="lg:col-span-5 relative">
+              <!-- Fondo cálido decorativo -->
+              <div class="relative bg-leather-deep rounded-2xl p-space-lg shadow-xl overflow-hidden space-y-space-md">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="font-label-stamp text-label-stamp uppercase tracking-widest text-primary">Anatomía del
+                      Clásico</span>
+                    <h3 class="font-headline-md text-headline-md text-parchment-cream">El Secreto del Sándwich</h3>
+                  </div>
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">restaurant</span>
+                  </div>
+                </div>
+                <div class="space-y-space-sm">
+                  <!-- Item 1 -->
+                  <div class="flex items-start gap-space-sm bg-surface-container-high/60 p-space-sm rounded-xl">
+                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">bakery_dining</span>
+                    <div>
+                      <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Pan de Masa Madre &amp; Costra
+                        Dorada</h4>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Elaborado por panaderos locales para
+                        absorber los jugos de cocción sin perder estructura crujiente.</p>
+                    </div>
+                  </div>
+                  <!-- Item 2 -->
+                  <div class="flex items-start gap-space-sm bg-surface-container-high/60 p-space-sm rounded-xl">
+                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">whatshot</span>
+                    <div>
+                      <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Vacío Desmechado Misionero</h4>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Hebras jugosas tiernizadas a fuego
+                        muy lento con reducción de vino y aromáticas locales.</p>
+                    </div>
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="flex items-start gap-space-sm bg-surface-container-high/60 p-space-sm rounded-xl">
+                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">local_pizza</span>
+                    <div>
+                      <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Queso Barra Misionero Fundido
+                      </h4>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Queso criollo de cuenca lechera
+                        provincial, derretido al vapor del disco antes de montar.</p>
+                    </div>
+                  </div>
+                  <!-- Item 4 -->
+                  <div class="flex items-start gap-space-sm bg-surface-container-high/60 p-space-sm rounded-xl">
+                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">soup_kitchen</span>
+                    <div>
+                      <h4 class="font-headline-sm text-headline-sm text-parchment-cream">Salsas Criolla y Chimichurri
+                      </h4>
+                      <p class="font-body-sm text-body-sm text-on-surface-variant">Equilibrio perfecto de acidez,
+                        frescura y picor suave para acompañar cada bocado.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Medalla interior informativa -->
+                <div
+                  class="bg-surface-container-lowest/80 p-space-sm rounded-xl flex items-center justify-between text-on-surface-variant">
+                  <span class="font-body-sm text-body-sm">Tiempo total de braseado diario</span>
+                  <span class="font-headline-sm text-headline-sm text-primary">+5 Horas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Los 4 Fundadores y sus Áreas de Trabajo -->
+      <section class="relative w-full bg-surface-container-low py-space-xl">
+        <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+            <div class="space-y-space-xs max-w-xl">
+              <div class="inline-flex items-center gap-space-xs text-primary">
+                <span class="material-symbols-outlined text-[18px]">group</span>
+                <span class="font-label-stamp text-label-stamp uppercase tracking-widest">Equipo Fundacional</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-parchment-cream">
+                Los 4 Compañeros Detrás del Fogón
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Una amistad forjada en las aulas que se transformó en una estructura de trabajo sólida, profesional y
+                apasionada por nuestra tierra.
+              </p>
+            </div>
+            <div
+              class="hidden sm:flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface-variant">
+              <span class="material-symbols-outlined text-primary">verified</span>
+              <span class="font-label-md text-label-md">Organización y Gestión Criolla</span>
+            </div>
+          </div>
+          <!-- Grid 4 Columnas con Tarjetas Ejecutivas de Alta Calidez -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <!-- Socio 1: Lucas Casco -->
+            <div
+              class="group relative bg-leather-deep rounded-2xl p-space-md flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)]">
+              <div class="space-y-space-sm">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-headline-sm text-headline-sm">1</span>
+                  <span
+                    class="font-label-stamp text-label-stamp uppercase bg-surface-container-highest px-space-xs py-0.5 rounded text-primary">Liderazgo</span>
+                </div>
+                <div class="pt-space-xs">
+                  <h3
+                    class="font-headline-md text-headline-md text-parchment-cream group-hover:text-primary transition-colors">
+                    Lucas Casco
+                  </h3>
+                  <p class="font-label-md text-label-md text-primary mt-0.5">
+                    Director General
+                  </p>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Toma de decisiones estratégicas, planificación de expansión, relación con proveedores de carne y
+                  coordinación general del negocio para garantizar el estándar de calidad en cada despacho.
+                </p>
+              </div>
+              <div
+                class="mt-space-md pt-space-sm bg-surface-container-high/50 -mx-space-md -mb-space-md p-space-md rounded-b-2xl flex items-center gap-space-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+                <span class="font-label-stamp text-label-stamp uppercase text-on-surface-variant">Coordinación
+                  Integral</span>
+              </div>
+            </div>
+            <!-- Socio 2: Thiago Paez -->
+            <div
+              class="group relative bg-leather-deep rounded-2xl p-space-md flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)]">
+              <div class="space-y-space-sm">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-headline-sm text-headline-sm">2</span>
+                  <span
+                    class="font-label-stamp text-label-stamp uppercase bg-surface-container-highest px-space-xs py-0.5 rounded text-primary">Creatividad</span>
+                </div>
+                <div class="pt-space-xs">
+                  <h3
+                    class="font-headline-md text-headline-md text-parchment-cream group-hover:text-primary transition-colors">
+                    Thiago Paez
+                  </h3>
+                  <p class="font-label-md text-label-md text-primary mt-0.5">
+                    Marketing &amp; Comunicación
+                  </p>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Estrategia publicitaria, creación de contenido en redes sociales, identidad visual de la marca y
+                  posicionamiento de Esencia Criolla en la comunidad gastronómica de Eldorado.
+                </p>
+              </div>
+              <div
+                class="mt-space-md pt-space-sm bg-surface-container-high/50 -mx-space-md -mb-space-md p-space-md rounded-b-2xl flex items-center gap-space-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">campaign</span>
+                <span class="font-label-stamp text-label-stamp uppercase text-on-surface-variant">Identidad &amp;
+                  Redes</span>
+              </div>
+            </div>
+            <!-- Socio 3: Florentín Alan -->
+            <div
+              class="group relative bg-leather-deep rounded-2xl p-space-md flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)]">
+              <div class="space-y-space-sm">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-headline-sm text-headline-sm">3</span>
+                  <span
+                    class="font-label-stamp text-label-stamp uppercase bg-surface-container-highest px-space-xs py-0.5 rounded text-primary">Eficiencia</span>
+                </div>
+                <div class="pt-space-xs">
+                  <h3
+                    class="font-headline-md text-headline-md text-parchment-cream group-hover:text-primary transition-colors">
+                    Florentín Alan
+                  </h3>
+                  <p class="font-label-md text-label-md text-primary mt-0.5">
+                    Contabilidad y Finanzas
+                  </p>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Control exhaustivo de finanzas, balance minucioso de costos por porción, registro diario de ingresos y
+                  egresos, y preservación de la sostenibilidad económica del emprendimiento.
+                </p>
+              </div>
+              <div
+                class="mt-space-md pt-space-sm bg-surface-container-high/50 -mx-space-md -mb-space-md p-space-md rounded-b-2xl flex items-center gap-space-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">query_stats</span>
+                <span class="font-label-stamp text-label-stamp uppercase text-on-surface-variant">Solidez &amp;
+                  Costos</span>
+              </div>
+            </div>
+            <!-- Socio 4: Florentín Lautaro -->
+            <div
+              class="group relative bg-leather-deep rounded-2xl p-space-md flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)]">
+              <div class="space-y-space-sm">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-headline-sm text-headline-sm">4</span>
+                  <span
+                    class="font-label-stamp text-label-stamp uppercase bg-surface-container-highest px-space-xs py-0.5 rounded text-primary">Cultura</span>
+                </div>
+                <div class="pt-space-xs">
+                  <h3
+                    class="font-headline-md text-headline-md text-parchment-cream group-hover:text-primary transition-colors">
+                    Florentín Lautaro
+                  </h3>
+                  <p class="font-label-md text-label-md text-primary mt-0.5">
+                    Recursos Humanos
+                  </p>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Gestión del equipo humano, organización equitativa de turnos y tareas de cocina, cultivo del clima
+                  laboral de respeto y preservación del espíritu de compañerismo en cada jornada.
+                </p>
+              </div>
+              <div
+                class="mt-space-md pt-space-sm bg-surface-container-high/50 -mx-space-md -mb-space-md p-space-md rounded-b-2xl flex items-center gap-space-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">handshake</span>
+                <span class="font-label-stamp text-label-stamp uppercase text-on-surface-variant">Clima &amp;
+                  Personas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cierre Institucional & Valores: La Fuerza de la Amistad -->
+      <section class="relative w-full bg-surface py-space-xl">
+        <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div
+            class="bg-gradient-to-br from-surface-container-high via-leather-deep to-surface-container-lowest rounded-3xl p-space-lg md:p-space-xl relative overflow-hidden shadow-2xl">
+            <!-- Detalle visual sutil de fondo -->
+            <div
+              class="absolute -right-16 -bottom-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <div class="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto space-y-space-md">
+              <div
+                class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-space-xs">
+                <span class="material-symbols-outlined text-[32px]">favorite</span>
+              </div>
+              <span class="font-label-stamp text-label-stamp uppercase tracking-widest text-primary">Nuestra Promesa
+                Criolla</span>
+              <blockquote
+                class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-parchment-cream leading-tight italic">
+                “Cuatro compañeros de colegio secundario no solo abrieron una sanduchería: demostraron que con pasión
+                misionera, fuego lento y lealtad, una idea simple puede convertirse en un orgullo para Eldorado.”
+              </blockquote>
+              <div class="flex items-center gap-space-sm pt-space-xs">
+                <span class="font-label-md text-label-md text-primary font-bold">Lucas, Thiago, Alan y Lautaro</span>
+                <span class="text-outline-variant">·</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Esencia Criolla 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Banner de Llamado a la Acción (CTA de Conversión) -->
+      <section class="relative w-full bg-surface-container-low py-space-xl">
+        <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          <div
+            class="bg-surface-container-high rounded-2xl p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-xl relative overflow-hidden">
+            <!-- Scrim de fondo -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent pointer-events-none">
+            </div>
+            <div class="relative z-10 space-y-space-xs text-center md:text-left">
+              <div class="inline-flex items-center gap-space-xs text-primary">
+                <span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+                <span class="font-label-stamp text-label-stamp uppercase tracking-widest">El Disco Ya Está
+                  Caliente</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-parchment-cream">
+                Probá el verdadero sabor del fuego misionero
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                Pedí hoy tu sándwich de vacío desmechado con pan crujiente, queso fundido y chimichurri artesanal. Listo
+                para retirar o envío a domicilio en Eldorado.
+              </p>
+            </div>
+            <div class="relative z-10 shrink-0 flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto">
+              <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary-container font-label-lg text-label-lg px-space-xl py-space-md rounded-xl transition-all shadow-[0_10px_30px_-5px_rgba(229,169,61,0.22)] active:scale-95 text-center font-bold"
+                href="index.html#armar-pedido">
+                <span class="material-symbols-outlined text-[20px]">restaurant_menu</span>
+                <span>Ver Carta y Hacer Pedido</span>
+              </a>
+              <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-whatsapp-green hover:bg-tertiary text-on-tertiary-fixed font-label-lg text-label-lg px-space-lg py-space-md rounded-xl transition-all shadow-md active:scale-95 text-center font-bold"
+                href="https://wa.me/5493751335955" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[20px]">chat</span>
+                <span>WhatsApp Directo</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="w-full bg-leather-deep shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="w-full max-w-[1180px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+        <div class="flex flex-col gap-space-sm">
+          <div class="flex items-center gap-space-xs"><span
+              class="font-headline-sm text-headline-sm text-primary tracking-tight">Esencia Criolla</span></div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Vacío desmechado a fuego lento en disco de arado
+            y leña misionera. Sándwiches de autor con la calidez del monte y el sabor criollo auténtico.</p>
+          <div class="inline-flex items-center gap-space-xs pt-space-xs"><span
+              class="material-symbols-outlined text-primary text-[18px]">local_fire_department</span><span
+              class="font-label-stamp text-label-stamp uppercase text-parchment-cream tracking-widest">Hecho a fuego,
+              hecho bien</span></div>
+        </div>
+        <div class="flex flex-col gap-space-xs"><span
+            class="font-headline-sm text-headline-sm text-parchment-cream">Navegación</span><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+            href="index.html#menu-carta">Carta de Sándwiches</a><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+            href="historia.html">Nuestra Historia &amp; Fogón</a><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+            href="#">Promociones del Fin de Semana</a><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+            href="#">Preguntas Frecuentes</a></div>
+        <div class="flex flex-col gap-space-xs"><span
+            class="font-headline-sm text-headline-sm text-parchment-cream">Ubicación &amp; Horarios</span>
+          <p class="font-body-md text-body-md text-on-surface-variant">Av. San Martín Km 9, Eldorado, Misiones,
+            Argentina</p>
+          <p class="font-body-md text-body-md text-on-surface-variant">Miércoles a Domingos: 19:30 a 00:00 hs</p>
+          <p class="font-body-sm text-body-sm text-primary">Take Away &amp; Envío a domicilio</p>
+        </div>
+        <div class="flex flex-col gap-space-sm"><span
+            class="font-headline-sm text-headline-sm text-parchment-cream">Atención Directa</span>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Hacé tu pedido personalizado al instante por
+            WhatsApp o seguí nuestros fuegos en Instagram.</p>
+          <div class="flex flex-col gap-space-xs"><a
+              class="inline-flex items-center justify-center gap-space-xs bg-whatsapp-green hover:bg-tertiary text-on-tertiary-fixed font-label-md text-label-md px-space-md py-space-sm rounded-lg transition-colors font-bold"
+              href="https://wa.me/5493751335955" rel="noopener noreferrer" target="_blank"><span
+                class="material-symbols-outlined text-[16px]">chat</span>WhatsApp Oficial</a><a
+              class="inline-flex items-center justify-center gap-space-xs bg-surface-container-high hover:bg-surface-container-highest text-parchment-cream font-label-md text-label-md px-space-md py-space-sm rounded-lg transition-colors"
+              href="#"><span
+                class="material-symbols-outlined text-[16px]">photo_camera</span>@esenciacriolla.eldorado</a></div>
+        </div>
+      </div>
+      <div
+        class="mt-space-xl pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left border-t border-surface-container-high/40">
+        <p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Esencia Criolla · Microemprendimiento
+          Escolar. Escuela Técnica de Eldorado, Misiones.</p>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Elaborado con dedicación criolla y fuego a leña.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <aside class="fixed bottom-space-lg right-space-lg z-40"><a
+      class="flex items-center gap-space-xs bg-whatsapp-green hover:bg-tertiary text-on-tertiary-fixed px-space-md py-space-sm rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all hover:scale-105 active:scale-95 font-bold"
+      href="https://wa.me/5493751335955" rel="noopener noreferrer" target="_blank"><span
+        class="material-symbols-outlined text-[24px]">chat</span><span
+        class="font-label-lg text-label-lg pr-space-xs">Pedir Ahora</span></a></aside>
+
+  <script>
+    // LÓGICA DEL MENÚ HAMBURGUESA MÓVIL
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const bars = menuBtn.querySelectorAll('.bar');
+
+    menuBtn.addEventListener('click', () => {
+      const isClosed = mobileNav.classList.contains('right-[-100%]');
+      
+      if (isClosed) {
+        // Abrir Menú
+        mobileNav.classList.remove('right-[-100%]');
+        mobileNav.classList.add('right-0');
+        // Animación a X
+        bars[0].classList.add('translate-y-2', 'rotate-45');
+        bars[1].classList.add('opacity-0');
+        bars[2].classList.add('-translate-y-2', '-rotate-45');
+      } else {
+        closeMenu();
+      }
+    });
+
+    function closeMenu() {
+      mobileNav.classList.add('right-[-100%]');
+      mobileNav.classList.remove('right-0');
+      // Reset animación
+      bars[0].classList.remove('translate-y-2', 'rotate-45');
+      bars[1].classList.remove('opacity-0');
+      bars[2].classList.remove('-translate-y-2', '-rotate-45');
+    }
+
+    // Cerrar al clickear un enlace
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
 </body>
+
 </html>
