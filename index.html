@@ -441,7 +441,7 @@
             </div>
             <h2 class="font-headline-lg text-headline-lg text-parchment-cream">Armá Tu Pedido para la Expo</h2>
             <p class="font-body-md text-body-md text-on-surface-variant">
-              Elegí tu producto y sumale aderezos caseros. Generá tu reserva directa a WhatsApp para asegurar tu
+              Elegí las cantidades de tus productos y sumale aderezos caseros. Generá tu reserva directa a WhatsApp para asegurar tu
               plato el día de la Expo en el Instituto.
             </p>
             <!-- Aviso Informativo Escolar -->
@@ -461,63 +461,55 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
             <!-- Interactive Controls (Steps 1 to 3) -->
             <div class="lg:col-span-7 flex flex-col gap-space-lg">
-              <!-- PASO 1: Elegir Producto Principal (ÚNICAMENTE 2 PRODUCTOS) -->
-              <div
-                class="bg-surface-container p-space-md lg:p-space-lg rounded-2xl shadow-md flex flex-col gap-space-md border border-surface-container-high">
+              
+              <!-- PASO 1: Elegir Especialidades (CARRITO DE COMPRAS) -->
+              <div class="bg-surface-container p-space-md lg:p-space-lg rounded-2xl shadow-md flex flex-col gap-space-md border border-surface-container-high">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-stamp text-label-stamp uppercase text-primary tracking-wider">1. Elegí tu
-                    especialidad (2 opciones)</span>
-                  <span class="font-body-sm text-body-sm text-on-surface-variant">Obligatorio</span>
+                  <span class="font-label-stamp text-label-stamp uppercase text-primary tracking-wider">1. Elegí tus porciones</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Obligatorio al menos 1</span>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
-                  <!-- Item Option A: Vacío (ESTRELLA) -->
-                  <label
-                    class="relative flex flex-col p-space-md bg-leather-deep rounded-xl cursor-pointer transition-all hover:bg-surface-container-high has-[:checked]:bg-surface-container-highest has-[:checked]:border-2 has-[:checked]:border-primary border border-primary/30">
-                    <div
-                      class="inline-flex self-start bg-primary text-on-primary font-label-stamp text-[9px] uppercase px-2 py-0.5 rounded-full font-bold mb-2">
+                  <!-- Vacío -->
+                  <div class="relative flex flex-col p-space-md bg-leather-deep rounded-xl border border-primary/30 transition-all hover:border-primary">
+                    <div class="inline-flex self-start bg-primary text-on-primary font-label-stamp text-[9px] uppercase px-2 py-0.5 rounded-full font-bold mb-2">
                       <span class="material-symbols-outlined text-[12px] mr-1">star</span> Producto Estrella
                     </div>
-                    <input checked="" class="sr-only" name="producto" onchange="updateLiveOrder()" type="radio"
-                      value="vacio" />
                     <div class="flex justify-between items-start">
                       <span class="font-headline-sm text-headline-sm text-parchment-cream">Sándwich de Vacío</span>
                       <span class="font-headline-sm text-headline-sm text-primary font-bold">$4.500</span>
                     </div>
-                    <span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Carne tierna al disco con leña
-                      misionera y queso criollo.</span>
-                  </label>
-                  <!-- Item Option B: Brochetas -->
-                  <label
-                    class="relative flex flex-col p-space-md bg-leather-deep rounded-xl cursor-pointer transition-all hover:bg-surface-container-high has-[:checked]:bg-surface-container-highest has-[:checked]:border-2 has-[:checked]:border-primary border border-surface-container-high">
-                    <div
-                      class="inline-flex self-start bg-surface-container-high text-parchment-muted font-label-stamp text-[9px] uppercase px-2 py-0.5 rounded-full font-bold mb-2">
+                    <span class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">Carne tierna al disco con leña misionera y queso criollo.</span>
+                    <div class="mt-auto flex items-center justify-between border-t border-surface-container-high pt-3">
+                      <span class="font-label-md text-parchment-cream">Cantidad:</span>
+                      <div class="inline-flex items-center gap-2 bg-surface-container-lowest px-2 py-1 rounded-lg">
+                        <button type="button" onclick="adjustItemQty('vacio', -1)" class="w-8 h-8 rounded bg-surface-container-high text-parchment-cream flex items-center justify-center font-bold active:scale-95">-</button>
+                        <span id="qty-vacio" class="font-headline-sm text-parchment-cream w-4 text-center">1</span>
+                        <button type="button" onclick="adjustItemQty('vacio', 1)" class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center font-bold active:scale-95">+</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Brochetas -->
+                  <div class="relative flex flex-col p-space-md bg-leather-deep rounded-xl border border-surface-container-high transition-all hover:border-primary">
+                    <div class="inline-flex self-start bg-surface-container-high text-parchment-muted font-label-stamp text-[9px] uppercase px-2 py-0.5 rounded-full font-bold mb-2">
                       A las Brasas
                     </div>
-                    <input class="sr-only" name="producto" onchange="updateLiveOrder()" type="radio"
-                      value="brochetas" />
                     <div class="flex justify-between items-start">
                       <span class="font-headline-sm text-headline-sm text-parchment-cream">Brochetas de Cerdo</span>
                       <span class="font-headline-sm text-headline-sm text-primary font-bold">$3.000</span>
                     </div>
-                    <span class="font-body-sm text-body-sm text-on-surface-variant mt-1">2 brochetas grandes de cerdo al fuego (sin verduras).</span>
-                  </label>
-                </div>
-                <!-- Selector de Cantidad -->
-                <div
-                  class="flex items-center justify-between pt-space-xs border-t-0 bg-surface-container-lowest/50 p-space-sm rounded-xl">
-                  <span class="font-label-md text-label-md text-parchment-cream">Cantidad de porciones:</span>
-                  <div class="inline-flex items-center gap-space-sm bg-leather-deep px-space-sm py-1 rounded-lg">
-                    <button
-                      class="w-8 h-8 rounded-md bg-surface-container-high hover:bg-surface-container-highest text-parchment-cream flex items-center justify-center font-bold text-lg active:scale-95 transition-all"
-                      onclick="adjustQuantity(-1)" type="button">-</button>
-                    <span class="font-headline-sm text-headline-sm text-parchment-cream w-6 text-center"
-                      id="order-qty">1</span>
-                    <button
-                      class="w-8 h-8 rounded-md bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center font-bold text-lg active:scale-95 transition-all"
-                      onclick="adjustQuantity(1)" type="button">+</button>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-4">2 brochetas grandes de cerdo al fuego (sin verduras).</span>
+                    <div class="mt-auto flex items-center justify-between border-t border-surface-container-high pt-3">
+                      <span class="font-label-md text-parchment-cream">Cantidad:</span>
+                      <div class="inline-flex items-center gap-2 bg-surface-container-lowest px-2 py-1 rounded-lg">
+                        <button type="button" onclick="adjustItemQty('brochetas', -1)" class="w-8 h-8 rounded bg-surface-container-high text-parchment-cream flex items-center justify-center font-bold active:scale-95">-</button>
+                        <span id="qty-brochetas" class="font-headline-sm text-parchment-cream w-4 text-center">0</span>
+                        <button type="button" onclick="adjustItemQty('brochetas', 1)" class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center font-bold active:scale-95">+</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <!-- PASO 2: Aderezos Caseros Gratuitos -->
               <div
                 class="bg-surface-container p-space-md lg:p-space-lg rounded-2xl shadow-md flex flex-col gap-space-md border border-surface-container-high">
@@ -609,16 +601,12 @@
                 </div>
                 <!-- Dynamic Ticket Content -->
                 <div class="flex flex-col gap-space-sm py-space-xs font-body-md text-body-md text-on-surface-variant">
-                  <div class="flex justify-between items-start text-parchment-cream">
-                    <div class="flex flex-col">
-                      <span class="font-label-lg text-label-lg text-primary" id="ticket-item-title">Sándwich de Vacío
-                        Desmechado</span>
-                      <span class="font-body-sm text-body-sm text-on-surface-variant" id="ticket-item-detail">1x
-                        $4.500</span>
-                    </div>
-                    <span class="font-label-lg text-label-lg font-bold text-parchment-cream"
-                      id="ticket-item-price">$4.500</span>
+                  
+                  <!-- Contenedor inyectable de productos -->
+                  <div id="ticket-products-container" class="flex flex-col gap-2">
+                    <!-- Se inyecta por JS -->
                   </div>
+
                   <!-- Selected Extras List -->
                   <div class="flex flex-col gap-1 text-body-sm text-on-surface-variant pt-space-xs"
                     id="ticket-extras-box">
@@ -640,11 +628,11 @@
                     <span class="font-body-sm text-body-sm text-primary">Se abona al retirar en el stand</span>
                   </div>
                   <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight"
-                    id="ticket-total">$4.500</span>
+                    id="ticket-total">$0</span>
                 </div>
                 <!-- Final WhatsApp Trigger -->
                 <a class="w-full inline-flex items-center justify-center gap-space-sm bg-whatsapp-green hover:bg-tertiary text-on-tertiary-fixed font-label-lg text-label-lg py-4 rounded-xl shadow-[0_10px_30px_-5px_rgba(37,211,102,0.3)] transition-all hover:scale-[1.02] active:scale-95 text-center font-bold"
-                  href="https://wa.me/5493751335955?text=Hola%20Esencia%20Criolla!%20Quiero%20reservar%20mi%20porción."
+                  href="#"
                   id="whatsapp-submit-btn" rel="noopener noreferrer" target="_blank">
                   <span class="material-symbols-outlined text-[24px]">chat</span>
                   <span>Enviar Reserva Directa a WhatsApp</span>
@@ -687,96 +675,118 @@
     <!-- CLIENT-SIDE SCRIPT FOR DYNAMIC ORDERING SIMULATOR -->
     <script>
       let orderState = {
-        product: 'vacio',
-        productName: 'Sándwich de Vacío Desmechado (Producto Estrella)',
-        productBasePrice: 4500,
-        quantity: 1,
+        items: {
+          vacio: { name: 'Sándwich de Vacío Desmechado', price: 4500, qty: 1 },
+          brochetas: { name: 'Brochetas de Cerdo Asadas', price: 3000, qty: 0 }
+        },
         aderezos: [],
         modalidad: 'Retiro en el Stand / Expo Instituto',
         clienteNombre: '',
         clienteDireccion: ''
       };
 
-      function preselectItem(type) {
-        const radio = document.querySelector(`input[name="producto"][value="${type === 'brochetas' ? 'brochetas' : 'vacio'}"]`);
-        if (radio) {
-          radio.checked = true;
+      function adjustItemQty(item, delta) {
+        if (orderState.items[item].qty + delta >= 0) {
+          orderState.items[item].qty += delta;
+          document.getElementById(`qty-${item}`).innerText = orderState.items[item].qty;
           updateLiveOrder();
-          const target = document.getElementById('armar-pedido');
-          if (target) {
-            target.scrollIntoView({behavior: 'smooth'});
-          }
         }
       }
 
-      function adjustQuantity(delta) {
-        if (orderState.quantity + delta >= 1) {
-          orderState.quantity += delta;
-          document.getElementById('order-qty').innerText = orderState.quantity;
-          updateLiveOrder();
+      function preselectItem(type) {
+        if (orderState.items[type].qty === 0) {
+            orderState.items[type].qty = 1;
+            document.getElementById(`qty-${type}`).innerText = 1;
+        }
+        updateLiveOrder();
+        const target = document.getElementById('armar-pedido');
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth'});
         }
       }
 
       function updateLiveOrder() {
-        // 1. Producto (Únicamente 2 opciones)
-        const selectedProd = document.querySelector('input[name="producto"]:checked');
-        if (selectedProd) {
-          if (selectedProd.value === 'brochetas') {
-            orderState.product = 'brochetas';
-            orderState.productName = 'Brochetas de Cerdo Asadas';
-            orderState.productBasePrice = 3000;
-          } else {
-            orderState.product = 'vacio';
-            orderState.productName = 'Sándwich de Vacío Desmechado (Producto Estrella)';
-            orderState.productBasePrice = 4500;
-          }
-        }
-
-        // 2. Aderezos
+        // 1. Recolectar Aderezos
         const aderezoChecks = document.querySelectorAll('input[name="aderezos"]:checked');
         orderState.aderezos = Array.from(aderezoChecks).map(el => el.value);
 
-
-        // 3. Modalidad fija: Retiro presencial en la fiesta
-        orderState.modalidad = 'Retiro en el Stand / Expo Instituto';
-
-        // 4. Cliente Info
+        // 2. Cliente Info
         const nombreInput = document.getElementById('cliente-nombre');
         const direccionInput = document.getElementById('cliente-direccion');
         orderState.clienteNombre = nombreInput ? nombreInput.value.trim() : '';
         orderState.clienteDireccion = direccionInput ? direccionInput.value.trim() : '';
 
-        // Render Ticket
-        const itemTotal = (orderState.productBasePrice) * orderState.quantity;
+        // 3. Render Ticket Dinámico
+        let total = 0;
+        let ticketDetailsHtml = '';
+        let waProductsText = '';
 
-        document.getElementById('ticket-item-title').innerText = orderState.productName;
-        document.getElementById('ticket-item-detail').innerText = `${orderState.quantity}x $${orderState.productBasePrice.toLocaleString('es-AR')}`;
-        document.getElementById('ticket-item-price').innerText = `$${(orderState.productBasePrice * orderState.quantity).toLocaleString('es-AR')}`;
+        const vacioQty = orderState.items.vacio.qty;
+        const brochetasQty = orderState.items.brochetas.qty;
 
-        // Render aderezos
+        if(vacioQty > 0) {
+            let sub = vacioQty * orderState.items.vacio.price;
+            total += sub;
+            ticketDetailsHtml += `
+              <div class="flex justify-between items-start text-parchment-cream mb-2">
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-primary">${orderState.items.vacio.name}</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">${vacioQty}x $4.500</span>
+                </div>
+                <span class="font-label-lg text-label-lg font-bold text-parchment-cream">$${sub.toLocaleString('es-AR')}</span>
+              </div>`;
+            waProductsText += `\n🍽 *${vacioQty}x* ${orderState.items.vacio.name}`;
+        }
+
+        if(brochetasQty > 0) {
+            let sub = brochetasQty * orderState.items.brochetas.price;
+            total += sub;
+            ticketDetailsHtml += `
+              <div class="flex justify-between items-start text-parchment-cream mb-2">
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-primary">${orderState.items.brochetas.name}</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">${brochetasQty}x $3.000</span>
+                </div>
+                <span class="font-label-lg text-label-lg font-bold text-parchment-cream">$${sub.toLocaleString('es-AR')}</span>
+              </div>`;
+            waProductsText += `\n🍽 *${brochetasQty}x* ${orderState.items.brochetas.name}`;
+        }
+
+        if (total === 0) {
+            ticketDetailsHtml = `<span class="text-on-surface-variant italic text-sm">Agrega productos a tu pedido usando los controles.</span>`;
+        }
+
+        const ticketProductsContainer = document.getElementById('ticket-products-container');
+        if(ticketProductsContainer) ticketProductsContainer.innerHTML = ticketDetailsHtml;
+
         const aderezosText = orderState.aderezos.length > 0 ? orderState.aderezos.join(', ') : 'Ninguno';
         document.getElementById('ticket-aderezos').innerText = aderezosText;
+        document.getElementById('ticket-total').innerText = `$${total.toLocaleString('es-AR')}`;
 
-        // Modalidad & Total
-        document.getElementById('ticket-modalidad').innerText = orderState.modalidad;
-        document.getElementById('ticket-total').innerText = `$${itemTotal.toLocaleString('es-AR')}`;
-
-        // Generate WhatsApp text URL
+        // 4. Generate WhatsApp text URL
         const clientSignature = orderState.clienteNombre ? `\n👤 *Nombre:* ${orderState.clienteNombre}` : '';
         const addressSignature = orderState.clienteDireccion ? `\n📌 *Nota:* ${orderState.clienteDireccion}` : '';
 
         const whatsappMessage = `*RESERVA - EXPO INSTITUTO SAN FRANCISCO*%0A` +
-          `🔥 *Esencia Criolla (Microemprendimiento)*%0A%0A` +
-          `🍽 *Porción:* ${orderState.quantity}x ${orderState.productName}%0A` +
+          `🔥 *Esencia Criolla (Microemprendimiento)*%0A` +
+          encodeURIComponent(waProductsText) + `%0A%0A` +
           `🥫 *Aderezos:* ${aderezosText}%0A` +
           `📍 *Entrega:* ${orderState.modalidad}` +
-          clientSignature + addressSignature + `%0A%0A` +
-          `💰 *TOTAL A ABONAR EN EL STAND:* $${itemTotal.toLocaleString('es-AR')}%0A%0A` +
-          `¡Hola chicos! Les reservo este pedido para el día de la Expo. ¡Muchos éxitos con el fogón!`;
+          encodeURIComponent(clientSignature + addressSignature) + `%0A%0A` +
+          `💰 *TOTAL A ABONAR EN EL STAND:* $${total.toLocaleString('es-AR')}%0A%0A` +
+          `¡Hola chicos! Les reservo este pedido para el día de la Expo.`;
 
         const btn = document.getElementById('whatsapp-submit-btn');
         if (btn) {
-          btn.href = `https://wa.me/5493751335955?text=${whatsappMessage}`;
+            if (total === 0) {
+                btn.href = "#";
+                btn.onclick = (e) => { e.preventDefault(); alert("Selecciona al menos 1 producto para hacer el pedido."); };
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                btn.href = `https://wa.me/5493751335955?text=${whatsappMessage}`;
+                btn.onclick = null;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
         }
       }
 
