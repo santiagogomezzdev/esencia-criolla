@@ -400,9 +400,14 @@
                   </p>
                   <!-- Ingredient Breakdown Pills -->
                   <div class="flex flex-wrap gap-2 pt-1">
-                    <span class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">2 Brochetas de Cerdo Grandes</span>
-                    <span class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">100% Carne (Sin verduras)</span>
-                    <span class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">Aderezos Caseros a Elección</span>
+                    <span
+                      class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">2
+                      Brochetas de Cerdo Grandes</span>
+                    <span
+                      class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">100% Carne (Sin verduras)</span>
+                    <span
+                      class="bg-surface-container-high text-parchment-cream font-label-stamp text-[11px] px-2.5 py-1 rounded-md">Aderezos
+                      Caseros a Elección</span>
                   </div>
                 </div>
               </div>
@@ -684,7 +689,7 @@
       let orderState = {
         product: 'vacio',
         productName: 'Sándwich de Vacío Desmechado (Producto Estrella)',
-        productBasePrice: 5500,
+        productBasePrice: 4500,
         quantity: 1,
         aderezos: [],
         modalidad: 'Retiro en el Stand / Expo Instituto',
@@ -719,11 +724,11 @@
           if (selectedProd.value === 'brochetas') {
             orderState.product = 'brochetas';
             orderState.productName = 'Brochetas de Cerdo Asadas';
-            orderState.productBasePrice = 4000;
+            orderState.productBasePrice = 3000;
           } else {
             orderState.product = 'vacio';
             orderState.productName = 'Sándwich de Vacío Desmechado (Producto Estrella)';
-            orderState.productBasePrice = 5500;
+            orderState.productBasePrice = 4500;
           }
         }
 
